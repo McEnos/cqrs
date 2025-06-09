@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>shared-lib</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>shared-lib</name>
     <description>shared-lib</description>
 
@@ -25,11 +24,25 @@
         <!-- Add any necessary dependencies for your shared library here -->
     </dependencies>
 
+
+
     <build>
         <plugins>
-            <!-- Remove the Spring Boot plugin to prevent treating this module as a Spring Boot app -->
-            <!-- The Spring Boot plugin is not needed for this shared library -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+        <finalName>shared-lib</finalName>
     </build>
 
 </project>
